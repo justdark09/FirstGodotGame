@@ -1,0 +1,8 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.idea/
+Gamey.csproj
+Gamey.sln
+project.godot
+icon.svg.import
