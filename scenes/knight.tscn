@@ -1,7 +1,7 @@
-[gd_scene load_steps=153 format=3 uid="uid://d1yyx7hcfjxmb"]
+[gd_scene load_steps=154 format=3 uid="uid://d1yyx7hcfjxmb"]
 
+[ext_resource type="Script" path="res://scripts/Sprite2d.cs" id="1_c1xpm"]
 [ext_resource type="Texture2D" uid="uid://drd3xlcij5jq6" path="res://sprites/knight_sheet.png" id="2_crxbd"]
-[ext_resource type="Script" path="res://scenes/knight.cs" id="2_id1g3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xns6s"]
 atlas = ExtResource("2_crxbd")
@@ -1199,14 +1199,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdda"]
+size = Vector2(10.125, 18.25)
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Knight" type="AnimatedSprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("1_c1xpm")
+
+[node name="Knight" type="AnimatedSprite2D" parent="RigidBody2D"]
 position = Vector2(4, -16)
 sprite_frames = SubResource("SpriteFrames_3k6di")
 animation = &"idle"
-script = ExtResource("2_id1g3")
 
-[node name="Camera2D" type="Camera2D" parent="Knight"]
-position = Vector2(-4, 6)
-zoom = Vector2(2.875, 2.875)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-1, 14.875)
+shape = SubResource("RectangleShape2D_iwdda")
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+position = Vector2(40, -1)
+zoom = Vector2(5, 5)

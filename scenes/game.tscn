@@ -5,7 +5,15 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node2D" parent="." instance=ExtResource("1_jubqe")]
+[node name="levelScene" parent="." instance=ExtResource("1_jubqe")]
+position = Vector2(70, 71)
+scale = Vector2(1.02457, 1.10652)
 
-[node name="Node2D2" parent="." instance=ExtResource("2_yk1io")]
-position = Vector2(485, 614)
+[node name="knightScene" parent="." instance=ExtResource("2_yk1io")]
+position = Vector2(466, 639)
+scale = Vector2(0.603854, 0.603854)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(500, 615)
+scale = Vector2(0.761298, 0.0444754)
+zoom = Vector2(5, 5)
