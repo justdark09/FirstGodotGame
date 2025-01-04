@@ -1,7 +1,8 @@
-[gd_scene load_steps=154 format=3 uid="uid://d1yyx7hcfjxmb"]
+[gd_scene load_steps=155 format=3 uid="uid://d1yyx7hcfjxmb"]
 
-[ext_resource type="Script" path="res://scripts/Sprite2d.cs" id="1_c1xpm"]
+[ext_resource type="Script" path="res://scripts/Knight.cs" id="1_cmnpk"]
 [ext_resource type="Texture2D" uid="uid://drd3xlcij5jq6" path="res://sprites/knight_sheet.png" id="2_crxbd"]
+[ext_resource type="Script" path="res://scripts/KnightCollision.cs" id="3_t30pi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xns6s"]
 atlas = ExtResource("2_crxbd")
@@ -1199,23 +1200,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwdda"]
-size = Vector2(10.125, 18.25)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qo4pw"]
+radius = 6.49663
+height = 17.1948
 
-[node name="Node2D" type="Node2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(1.91428, 1.91428)
+script = ExtResource("1_cmnpk")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-script = ExtResource("1_c1xpm")
-
-[node name="Knight" type="AnimatedSprite2D" parent="RigidBody2D"]
-position = Vector2(4, -16)
+[node name="Knight" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -15)
+scale = Vector2(0.979257, 0.979257)
 sprite_frames = SubResource("SpriteFrames_3k6di")
 animation = &"idle"
+autoplay = "idle"
+frame = 7
+frame_progress = 0.970785
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-1, 14.875)
-shape = SubResource("RectangleShape2D_iwdda")
+[node name="Camera2D" type="Camera2D" parent="Knight"]
+position = Vector2(-4.26764, -10.1356)
+zoom = Vector2(4, 4)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
-[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
-position = Vector2(40, -1)
-zoom = Vector2(5, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.05, 7)
+scale = Vector2(1.17876, 2.00232)
+shape = SubResource("CapsuleShape2D_qo4pw")
+script = ExtResource("3_t30pi")

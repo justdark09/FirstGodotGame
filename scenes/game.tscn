@@ -1,19 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjupbnluimd63"]
+[gd_scene load_steps=3 format=3 uid="uid://woa5e2f40tem"]
 
-[ext_resource type="PackedScene" uid="uid://dsko55etb8b4t" path="res://scenes/level_one.tscn" id="1_jubqe"]
-[ext_resource type="PackedScene" uid="uid://d1yyx7hcfjxmb" path="res://scenes/knight.tscn" id="2_yk1io"]
+[ext_resource type="PackedScene" uid="uid://dsko55etb8b4t" path="res://scenes/level_one.tscn" id="1_ok5p4"]
+[ext_resource type="PackedScene" uid="uid://d1yyx7hcfjxmb" path="res://scenes/knight.tscn" id="2_sqk1v"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="levelScene" parent="." instance=ExtResource("1_jubqe")]
-position = Vector2(70, 71)
-scale = Vector2(1.02457, 1.10652)
+[node name="Level_One" parent="." instance=ExtResource("1_ok5p4")]
+position = Vector2(614, 516)
+scale = Vector2(1.80212, 1.80212)
 
-[node name="knightScene" parent="." instance=ExtResource("2_yk1io")]
-position = Vector2(466, 639)
-scale = Vector2(0.603854, 0.603854)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(500, 615)
-scale = Vector2(0.761298, 0.0444754)
-zoom = Vector2(5, 5)
+[node name="Knight" parent="." instance=ExtResource("2_sqk1v")]
+position = Vector2(317, 499)
+scale = Vector2(0.851935, 0.851935)
